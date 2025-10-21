@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>passport</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+<nav>
+    <ul type="circle">
+        <li>
+            <a href="passport.html" target="_self">Паспорт</a>
+        </li>
+        <li>
+            <a href="passport2.html" target="_self">DOM_JS</a>
+        </li>
+        <li>
+            <a href="task.html" target="_self">Задача</a>
+        </li>
+    </ul>
+</nav>
+
+    <div>
+        <p class="block1">ГУ МВД РОССИИ ПО<br> Х ОБЛАСТИ </p>
+        <p class="block2">22.22.2022</p>
+        <p class="block3">123-456</p>
+    </div>
+
+    <div id="text-to-translate">
+        <p class="block4">ЧУБУКОВА</p>
+        <p class="block5">ОЛЕСЯ</p>
+        <p class="block6">СТАНИСЛАВОВНА</p>
+        <p class="block7">ЖЕН.</p>
+        <p class="block8">02.12.2006</p>
+        <p class="block9">Г. Х <br> РОССИЯ</p>
+    </div>
+
+    <button onclick="translateToLatin()" class="button">Изменить язык</button>
+
+   <script>
+function translateToLatin() {
+  const cyrillicText = document.getElementById("text-to-translate").innerText;
+  let latinText = "";
+  const cyrillicMap = {
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z',
+    'и': 'i', 'й': 'i', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r',
+    'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh',
+    'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+  };
+
+  for (let i = 0; i < cyrillicText.length; i++) {
+    const char = cyrillicText[i].toLowerCase();
+    latinText += cyrillicMap[char] || cyrillicText[i];
+  }
+
+  document.getElementById("text-to-translate").innerText = latinText;
+}
+</script>
+
+</body>
+
+</html>
